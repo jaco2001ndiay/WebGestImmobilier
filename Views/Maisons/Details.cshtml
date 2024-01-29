@@ -1,0 +1,91 @@
+﻿@model WebGestImmobilier.Models.Maison
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Maison</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Proprietaire.NomPropri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proprietaire.NomPropri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Superficie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Superficie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Localisation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Localisation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nbre_chambres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nbre_chambres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nbre_douche)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nbre_douche)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nbre_cuisine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nbre_cuisine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbreToilette)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbreToilette)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Idmaison }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<WebGestImmobilier.Models.Maison>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Proprietaire.NomPropri)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Superficie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Localisation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nbre_chambres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nbre_douche)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nbre_cuisine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NbreToilette)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proprietaire.NomPropri)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prix)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Superficie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Localisation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nbre_chambres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nbre_douche)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nbre_cuisine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NbreToilette)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Idmaison }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Idmaison }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Idmaison })
+        </td>
+    </tr>
+}
+
+</table>

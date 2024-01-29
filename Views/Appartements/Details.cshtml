@@ -1,0 +1,43 @@
+﻿@model WebGestImmobilier.Models.Appartement
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Appartement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.maisons.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.maisons.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lib_Appartement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lib_Appartement)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nbre_Salle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nbre_Salle)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idAppartement }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

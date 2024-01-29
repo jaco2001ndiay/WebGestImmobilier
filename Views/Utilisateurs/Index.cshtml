@@ -1,0 +1,127 @@
+﻿@model PagedList.IPagedList<WebGestImmobilier.Models.Utilisateurs>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    .search-container {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+    .pagination {
+        display: inline-block;
+        padding-left: 0;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+
+        .pagination > li {
+            display: inline;
+            margin-right: 5px;
+        }
+
+            .pagination > li > a,
+            .pagination > li > span {
+                position: relative;
+                float: left;
+                padding: 6px 12px;
+                margin-left: -1px;
+                line-height: 1.42857143;
+                text-decoration: none;
+                background-color: #fff;
+                border: 1px solid #ddd;
+            }
+</style>
+
+<script>
+    // Vous pouvez ajouter du JavaScript ici si nécessaire
+</script>
+
+<h2>Liste des Utilisateurs</h2>
+
+<p>
+    @Html.ActionLink("Créer un nouvel utilisateur", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "Utilisateurs", FormMethod.Get))
+{
+    <div class="search-container">
+        <p>
+            Rechercher par nom: @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Rechercher" />
+        </p>
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Nom Utilisateur", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            Prénom
+        </th>
+        <th>
+            Login
+        </th>
+        <th>
+            @Html.ActionLink("Email", "Index", new { sortOrder = ViewBag.MailSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            Numéros de téléphone
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomUsers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.addPhoneNumber2)
+            </td>
+            <td>
+                @Html.ActionLink("Modifier", "Edit", new { id = item.IdUsers }, new { @class = "btn btn-warning btn-sm" })
+                @Html.ActionLink("Détails", "Details", new { id = item.IdUsers }, new { @class = "btn btn-info btn-sm" })
+                @Html.ActionLink("Supprimer", "Delete", new { id = item.IdUsers }, new { @class = "btn btn-danger btn-sm" })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

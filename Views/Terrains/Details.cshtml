@@ -1,0 +1,71 @@
+﻿@model WebGestImmobilier.Models.Terrain
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Détails Terrain</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Informations Terrain</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Proprietaire.NomPropri)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Proprietaire.NomPropri)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Prix)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Prix)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Superficie)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Superficie)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Localisation)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Localisation)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.typeterrain)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.typeterrain)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        @Html.ActionLink("Modifier", "Edit", new { id = Model.Idterrain }, new { @class = "btn btn-warning" }) |
+        @Html.ActionLink("Retour à la liste", "Index", new { @class = "btn btn-default" })
+    </div>
+</div>

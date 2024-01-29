@@ -1,0 +1,67 @@
+﻿@model IEnumerable<WebGestImmobilier.Models.Studio>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Liste des Studios</h2>
+
+<p>
+    @Html.ActionLink("Créer un nouveau", "Create", null, new { @class = "btn btn-success" })
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Proprietaire.NomPropri)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Superficie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Localisation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nbre_pieces)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Proprietaire.NomPropri)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prix)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Superficie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Localisation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nbre_pieces)
+                </td>
+                <td>
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.Idstudio }, new { @class = "btn btn-warning btn-sm" }) |
+                    @Html.ActionLink("Détails", "Details", new { id = item.Idstudio }, new { @class = "btn btn-info btn-sm" }) |
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.Idstudio }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

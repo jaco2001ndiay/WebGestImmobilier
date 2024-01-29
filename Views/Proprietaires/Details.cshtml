@@ -1,0 +1,35 @@
+﻿@model WebGestImmobilier.Models.Proprietaire
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Proprietaire</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Utilisateures.nomUsers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utilisateures.nomUsers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomPropri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomPropri)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Idproprietarie }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

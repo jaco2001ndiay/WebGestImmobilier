@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebGestImmobilier.Models.Appartement>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.maisons.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lib_Appartement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nbre_Salle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.maisons.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lib_Appartement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nbre_Salle)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idAppartement }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idAppartement }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idAppartement })
+        </td>
+    </tr>
+}
+
+</table>

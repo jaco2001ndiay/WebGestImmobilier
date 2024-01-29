@@ -1,0 +1,71 @@
+﻿@model WebGestImmobilier.Models.Studio
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Supprimer</h2>
+    <h3>Êtes-vous sûr de vouloir supprimer ceci?</h3>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Proprietaire.NomPropri)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Proprietaire.NomPropri)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Prix)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Prix)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Superficie)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Superficie)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Localisation)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Localisation)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.nbre_pieces)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.nbre_pieces)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+            @Html.ActionLink("Retour à la liste", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>

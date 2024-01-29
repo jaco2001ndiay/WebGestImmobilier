@@ -1,0 +1,66 @@
+﻿@model WebGestImmobilier.Models.Studio
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Détails du Studio</h2>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Proprietaire.NomPropri)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Proprietaire.NomPropri)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Prix)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Prix)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Superficie)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Superficie)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Localisation)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Localisation)
+        </dd>
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.nbre_pieces)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.nbre_pieces)
+        </dd>
+    </dl>
+</div>
+<div class="container">
+    <p>
+        @Html.ActionLink("Modifier", "Edit", new { id = Model.Idstudio }, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("Retour à la liste", "Index", null, new { @class = "btn btn-default" })
+    </p>
+</div>
