@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,10 +16,47 @@ namespace WebGestImmobilier.Controllers
         private ImmobilierContext db = new ImmobilierContext();
 
         // GET: Proprietaires
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "nom_desc" : "";
+            ViewBag.PrenomSortParm = sortOrder == "Prenom" ? "Prenom_desc" : "Prenom";
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                // sinon on garde notre numeros de recherche  
+                searchString = currentFilter;
+            }
             var proprietaires = db.Proprietaires.Include(p => p.Utilisateures);
-            return View(proprietaires.ToList());
+            ViewBag.CurrentFilter = searchString;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                proprietaires = proprietaires.Where(s => s.NomPropri.Contains(searchString) || s.Utilisateures.nomUsers.Contains(searchString));
+
+            }
+            switch (sortOrder)
+            {
+                case "nom_desc":
+                    proprietaires = proprietaires.OrderByDescending(s => s.NomPropri);
+                    break;
+                case "Prenom":
+                    proprietaires = proprietaires.OrderBy(s => s.Utilisateures.nomUsers);
+                    break;
+                case "Prenom_desc":
+                    proprietaires = proprietaires.OrderByDescending(s => s.Utilisateures.nomUsers);
+                    break;
+                default:
+                    proprietaires = proprietaires.OrderBy(s => s.NomPropri);
+                    break;
+            }
+            // je donne le nombre d'element par page  
+            int pageSize = 3;
+            // on decrit le numeros de page en cours 
+            int pageNumber = (page ?? 1);
+            return View(proprietaires.ToPagedList(pageNumber,pageSize));
         }
 
         // GET: Proprietaires/Details/5

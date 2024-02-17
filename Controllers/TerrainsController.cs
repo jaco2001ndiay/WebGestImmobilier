@@ -1,9 +1,13 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
+using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Mvc;
 using WebGestImmobilier.Models;
@@ -15,11 +19,47 @@ namespace WebGestImmobilier.Controllers
         private ImmobilierContext db = new ImmobilierContext();
 
         // GET: Terrains
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilder, string searchString, int? page)
         {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.LocalisationSortParm = sortOrder == "Localisation" ? "loca_desc" : "Localisation";
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilder;
+            }
+            ViewBag.CurrentFilter = searchString;
             var terrains = db.Terrains.Include(t => t.Proprietaire);
-            return View(terrains.ToList());
-        }
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                terrains = terrains.Where(s => s.Description.Contains(searchString) || s.Localisation.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc" :
+                    terrains = terrains.OrderByDescending(s=>s.Description)   ;
+                    break;
+                case "Localisation": 
+                    terrains = terrains.OrderBy(s=>s.Localisation) ;
+                    break;
+                case "loca_desc": 
+                    terrains = terrains.OrderByDescending((s)=>s.Localisation) ;
+                    break;
+                default:
+                    terrains = terrains.OrderBy((s)=>s.Description) ;
+                    break; 
+
+                    
+            }
+            int pageSize = 3;
+            int pageNumber = (page ?? 1); 
+            return View(terrains.ToPagedList(pageNumber, pageSize));
+        } 
+       
 
         // GET: Terrains/Details/5
         public ActionResult Details(int? id)
@@ -52,10 +92,19 @@ namespace WebGestImmobilier.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Terrains.Add(terrain);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                    if(terrain.IdProprio == null)
+                {
+                    ModelState.AddModelError("IdProprio", "Veuiller chosir le proprietaire");
+
+                    return RedirectToAction("Create"); 
+                }
+
+
+                    db.Terrains.Add(terrain);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                } 
+            
 
             ViewBag.IdProprio = new SelectList(db.Proprietaires, "Idproprietarie", "NomPropri", terrain.IdProprio);
             return View(terrain);

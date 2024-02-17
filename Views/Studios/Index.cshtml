@@ -1,35 +1,100 @@
-﻿@model IEnumerable<WebGestImmobilier.Models.Studio>
+﻿<!-- model IEnumerable<WebGestImmobilier.Models.Studio> -->
+@model PagedList.IPagedList<WebGestImmobilier.Models.Studio>
+@using PagedList.Mvc ;
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+<style>
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    .search-container {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+    .pagination {
+        display: inline-block;
+        padding-left: 0;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+
+        .pagination > li {
+            display: inline;
+            margin-right: 5px;
+        }
+
+            .pagination > li > a,
+            .pagination > li > span {
+                position: relative;
+                float: left;
+                padding: 6px 12px;
+                margin-left: -1px;
+                line-height: 1.42857143;
+                text-decoration: none;
+                background-color: #fff;
+                border: 1px solid #ddd;
+            }
+</style>
+
 <h2>Liste des Studios</h2>
 
 <p>
     @Html.ActionLink("Créer un nouveau", "Create", null, new { @class = "btn btn-success" })
 </p>
+<!-- inclusion de la barre de recherche -->
+@using (Html.BeginForm("Index", "Studios", FormMethod.Get))
+{
+    <div class="search-container">
+        <p>
+            Rechercher par nom du proprietaire ou localisation: @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Rechercher" />
+        </p>
+    </div>
+}
 <table class="table table-striped">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Proprietaire.NomPropri)
+                @Html.ActionLink("Nom du proprietaire", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                Description
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Prix)
+                Prix
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Superficie)
+                Superficie
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Localisation)
+                @Html.ActionLink("Localisation", "Index", new { sortOrder = ViewBag.LocaSortParm, currentFilter = ViewBag.CurrentFilter })
+
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.nbre_pieces)
+                Nombre de pieces
             </th>
             <th></th>
         </tr>
@@ -65,3 +130,6 @@
         }
     </tbody>
 </table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

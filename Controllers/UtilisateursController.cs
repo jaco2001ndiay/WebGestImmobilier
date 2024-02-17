@@ -16,7 +16,7 @@ namespace WebGestImmobilier.Controllers
         private ImmobilierContext db = new ImmobilierContext();
 
         // GET: Utilisateurs
-        public ActionResult Index(string sortOrder,string currentFilter, string searchString, int?page) 
+        public ViewResult Index(string sortOrder,string currentFilter, string searchString, int?page) 
         {
             // je donne le sort order actuel pour la garder a la pagination 
             ViewBag.CurrentSort = sortOrder; 

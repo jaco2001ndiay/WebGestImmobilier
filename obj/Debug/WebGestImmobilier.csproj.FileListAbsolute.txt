@@ -194,6 +194,8 @@ C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\We
 C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\Newtonsoft.Json.dll
 C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\Owin.dll
+C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\PagedList.dll
+C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\PagedList.Mvc.dll
 C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\System.Web.Helpers.dll
 C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\System.Web.Mvc.dll
 C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\System.Web.Optimization.dll
@@ -204,6 +206,8 @@ C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\We
 C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\WebGrease.dll
 C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\EntityFramework.xml
 C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\EntityFramework.SqlServer.xml
+C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\PagedList.xml
+C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\PagedList.Mvc.xml
 C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\System.Web.Helpers.xml
 C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\System.Web.Mvc.xml
 C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\System.Web.Optimization.xml
@@ -248,7 +252,3 @@ C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\We
 C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\obj\Debug\WebGestImmobilier.csproj.CopyComplete
 C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\obj\Debug\WebGestImmobilier.dll
 C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\obj\Debug\WebGestImmobilier.pdb
-C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\PagedList.dll
-C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\PagedList.Mvc.dll
-C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\PagedList.xml
-C:\Users\7MAKSACOD PC\Documents\All_My_Course\Master1\ASP_Course\ASP_Exercise\WebGestImmobilier\bin\PagedList.Mvc.xml

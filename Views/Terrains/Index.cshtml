@@ -1,9 +1,63 @@
-﻿@model IEnumerable<WebGestImmobilier.Models.Terrain>
-
+﻿<!--model IEnumerable<WebGestImmobilier.Models.Terrain>
+-->
+@model PagedList.IPagedList<WebGestImmobilier.Models.Terrain>
+@using PagedList.Mvc ;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<style>
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    .search-container {
+        margin-bottom: 20px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+    .pagination {
+        display: inline-block;
+        padding-left: 0;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+
+        .pagination > li {
+            display: inline;
+            margin-right: 5px;
+        }
+
+            .pagination > li > a,
+            .pagination > li > span {
+                position: relative;
+                float: left;
+                padding: 6px 12px;
+                margin-left: -1px;
+                line-height: 1.42857143;
+                text-decoration: none;
+                background-color: #fff;
+                border: 1px solid #ddd;
+            }
+</style>
+
+
 
 <h2>Liste des Terrains</h2>
 
@@ -11,15 +65,29 @@
     @Html.ActionLink("Créer un nouveau", "Create", null, new { @class = "btn btn-primary" })
 </p>
 
+@using (Html.BeginForm("Index", "Terrains", FormMethod.Get))
+{
+    <div class="search-container">
+        <p>
+            Rechercher par nom: @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Rechercher" />
+        </p>
+    </div>
+}
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.Proprietaire.NomPropri)</th>
-            <th>@Html.DisplayNameFor(model => model.Description)</th>
-            <th>@Html.DisplayNameFor(model => model.Prix)</th>
-            <th>@Html.DisplayNameFor(model => model.Superficie)</th>
-            <th>@Html.DisplayNameFor(model => model.Localisation)</th>
-            <th>@Html.DisplayNameFor(model => model.typeterrain)</th>
+            <th>Nom du proprietaire</th>
+
+            <th>
+                @Html.ActionLink("Description", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>Prix </th>
+            <th>Superficie</th>
+            <th>
+                @Html.ActionLink("Localisation", "Index", new { sortOrder = ViewBag.LocalisationSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>type de terrain</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -42,3 +110,7 @@
         }
     </tbody>
 </table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+

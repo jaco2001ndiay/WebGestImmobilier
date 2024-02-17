@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using PagedList;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -15,10 +16,52 @@ namespace WebGestImmobilier.Controllers
         private ImmobilierContext db = new ImmobilierContext();
 
         // GET: Studios
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            // je donne le sort order actuel pour la garder a la pagination 
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "nom_desc" : "";
+            ViewBag.LocaSortParm = sortOrder == "Localisation" ? "loca_desc" : "Localisation";
+            // si la chaine de recherche est modifie su cours du changement de page  
+            // alors on met page a 1 
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                // sinon on garde notre numeros de recherche  
+                searchString = currentFilter;
+            }
             var studios = db.Studios.Include(s => s.Proprietaire);
-            return View(studios.ToList());
+
+            // je defini le current filter pour garder le filtre actuel a la pagination 
+            ViewBag.CurrentFilter = searchString;
+            if(!String.IsNullOrEmpty(searchString))
+            {
+                studios = studios.Where(s => s.Localisation.Contains(searchString) || s.Proprietaire.NomPropri.Contains(searchString));  
+               
+            }
+            switch (sortOrder)
+            {
+                case "nom_desc":
+                    studios = studios.OrderByDescending(s => s.Proprietaire.NomPropri);
+                    break;
+                case "Localisation":
+                    studios = studios.OrderBy(s => s.Localisation);
+                    break;
+                case "loca_desc":
+                    studios = studios.OrderByDescending(s => s.Localisation);
+                    break;
+                default:
+                    studios = studios.OrderBy(s => s.Proprietaire.NomPropri);
+                    break;
+            }
+            // je donne le nombre d'element par page  
+            int pageSize = 3;
+            // on decrit le numeros de page en cours 
+            int pageNumber = (page ?? 1);
+            return View(studios.ToPagedList(pageNumber,pageSize)) ; 
         }
 
         // GET: Studios/Details/5
