@@ -1,6 +1,4 @@
-﻿<!--model IEnumerable<WebGestImmobilier.Models.Terrain>
--->
-@model PagedList.IPagedList<WebGestImmobilier.Models.Terrain>
+﻿@model PagedList.IPagedList<WebGestImmobilier.Models.Terrain>
 @using PagedList.Mvc ;
 @{
     ViewBag.Title = "Index";
@@ -16,101 +14,69 @@
         margin-bottom: 20px;
     }
 
-    .table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
+    .table th, .table td {
+        vertical-align: middle;
     }
-
-        .table th, .table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        .table th {
-            background-color: #f2f2f2;
-        }
-
-    .pagination {
-        display: inline-block;
-        padding-left: 0;
-        margin: 20px 0;
-        border-radius: 4px;
-    }
-
-        .pagination > li {
-            display: inline;
-            margin-right: 5px;
-        }
-
-            .pagination > li > a,
-            .pagination > li > span {
-                position: relative;
-                float: left;
-                padding: 6px 12px;
-                margin-left: -1px;
-                line-height: 1.42857143;
-                text-decoration: none;
-                background-color: #fff;
-                border: 1px solid #ddd;
-            }
 </style>
-
-
 
 <h2>Liste des Terrains</h2>
 
-<p>
-    @Html.ActionLink("Créer un nouveau", "Create", null, new { @class = "btn btn-primary" })
-</p>
-
-@using (Html.BeginForm("Index", "Terrains", FormMethod.Get))
-{
-    <div class="search-container">
+<div class="row">
+    <div class="col-md-6">
         <p>
-            Rechercher par nom: @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
-            <input type="submit" value="Rechercher" />
+            @Html.ActionLink("Créer un nouveau", "Create", null, new { @class = "btn btn-primary" })
         </p>
     </div>
-}
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Nom du proprietaire</th>
-
-            <th>
-                @Html.ActionLink("Description", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
-            </th>
-            <th>Prix </th>
-            <th>Superficie</th>
-            <th>
-                @Html.ActionLink("Localisation", "Index", new { sortOrder = ViewBag.LocalisationSortParm, currentFilter = ViewBag.CurrentFilter })
-            </th>
-            <th>type de terrain</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
+    <div class="col-md-6">
+        @using (Html.BeginForm("Index", "Terrains", FormMethod.Get))
         {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.Proprietaire.NomPropri)</td>
-                <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                <td>@Html.DisplayFor(modelItem => item.Prix)</td>
-                <td>@Html.DisplayFor(modelItem => item.Superficie)</td>
-                <td>@Html.DisplayFor(modelItem => item.Localisation)</td>
-                <td>@Html.DisplayFor(modelItem => item.typeterrain)</td>
-                <td>
-                    @Html.ActionLink("Modifier", "Edit", new { id = item.Idterrain }, new { @class = "btn btn-warning btn-sm" }) |
-                    @Html.ActionLink("Détails", "Details", new { id = item.Idterrain }, new { @class = "btn btn-info btn-sm" }) |
-                    @Html.ActionLink("Supprimer", "Delete", new { id = item.Idterrain }, new { @class = "btn btn-danger btn-sm" })
-                </td>
-            </tr>
+            <div class="input-group">
+                @Html.TextBox("searchString", ViewBag.CurrentFilter as string, new { @class = "form-control", placeholder = "Rechercher par nom" })
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">Rechercher</button>
+                </span>
+            </div>
         }
-    </tbody>
-</table>
-<br />
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    </div>
+</div>
 
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nom du propriétaire</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Superficie</th>
+                <th>Localisation</th>
+                <th>Type de terrain</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Proprietaire.NomPropri)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Prix)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Superficie)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Localisation)</td>
+                    <td>@Html.DisplayFor(modelItem => item.typeterrain)</td>
+                    <td>
+                        @Html.ActionLink("Modifier", "Edit", new { id = item.Idterrain }, new { @class = "btn btn-warning btn-sm" }) |
+                        @Html.ActionLink("Détails", "Details", new { id = item.Idterrain }, new { @class = "btn btn-info btn-sm" }) |
+                        @Html.ActionLink("Supprimer", "Delete", new { id = item.Idterrain }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    </div>
+</div>

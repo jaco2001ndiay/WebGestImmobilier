@@ -189,6 +189,11 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appartement.cs" />
+    <Compile Include="Models\App_LocalResources\ResourceFrc.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceFrc.resx</DependentUpon>
+    </Compile>
     <Compile Include="Models\pojo\AppartementView.cs" />
     <Compile Include="Models\pojo\MaisonView.cs" />
     <Compile Include="Models\pojo\ProprietaireView.cs" />
@@ -4153,6 +4158,7 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Models\report\MaisonRpt.rpt" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -4239,7 +4245,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\App_LocalResources\Resource.fr.resx" />
+    <Content Include="Models\App_LocalResources\ResourceFrc.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceFrc.Designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

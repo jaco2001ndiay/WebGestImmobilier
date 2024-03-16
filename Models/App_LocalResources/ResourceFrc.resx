@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="add" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="add_apartment" xml:space="preserve">
+    <value>Ajout d'un appartement</value>
+  </data>
+  <data name="add_bedroom" xml:space="preserve">
+    <value>Ajout d'un chambre</value>
+  </data>
+  <data name="add_house" xml:space="preserve">
+    <value>Ajout d'une maison</value>
+  </data>
+  <data name="add_land" xml:space="preserve">
+    <value>Ajout d'un terrain</value>
+  </data>
+  <data name="add_owner" xml:space="preserve">
+    <value>Ajout d'un proprietaire</value>
+  </data>
+  <data name="add_studio" xml:space="preserve">
+    <value>Ajout d'un studio</value>
+  </data>
+  <data name="add_user" xml:space="preserve">
+    <value>Ajout d'un utilisateur </value>
+  </data>
+  <data name="apartment" xml:space="preserve">
+    <value>Appartement</value>
+  </data>
+  <data name="apartment_id" xml:space="preserve">
+    <value>Identifiant de l'appartment</value>
+  </data>
+  <data name="apartment_label" xml:space="preserve">
+    <value>Libelle de l'appartement</value>
+  </data>
+  <data name="apartment_list" xml:space="preserve">
+    <value>Liste des appartements</value>
+  </data>
+  <data name="app_management" xml:space="preserve">
+    <value>Application Gestion Immobiliere</value>
+  </data>
+  <data name="bedroom" xml:space="preserve">
+    <value>Chambre</value>
+  </data>
+  <data name="bedroom_list" xml:space="preserve">
+    <value>Liste des Chambres</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="delete_apartment" xml:space="preserve">
+    <value>Suppression d'un appartement</value>
+  </data>
+  <data name="delete_bedroom" xml:space="preserve">
+    <value>Suppression d'une chambre</value>
+  </data>
+  <data name="delete_house" xml:space="preserve">
+    <value>Suppression d'une maison</value>
+  </data>
+  <data name="delete_land" xml:space="preserve">
+    <value>Suppression d;un terrain</value>
+  </data>
+  <data name="delete_owner" xml:space="preserve">
+    <value>Suppression d'un proprietaire</value>
+  </data>
+  <data name="delete_studio" xml:space="preserve">
+    <value>Suppression d'un studio</value>
+  </data>
+  <data name="delete_user" xml:space="preserve">
+    <value>Suppression d'un utilisateur</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>Editer</value>
+  </data>
+  <data name="firstname" xml:space="preserve">
+    <value>prenom</value>
+  </data>
+  <data name="house" xml:space="preserve">
+    <value>Maison</value>
+  </data>
+  <data name="houses" xml:space="preserve">
+    <value>Maisons</value>
+  </data>
+  <data name="house_area" xml:space="preserve">
+    <value>Superficie de la maison</value>
+  </data>
+  <data name="house_description" xml:space="preserve">
+    <value>Description de la masion</value>
+  </data>
+  <data name="house_id" xml:space="preserve">
+    <value>Identifiant maison</value>
+  </data>
+  <data name="house_list" xml:space="preserve">
+    <value>Liste des maisons</value>
+  </data>
+  <data name="house_location" xml:space="preserve">
+    <value>Localisation de la maison</value>
+  </data>
+  <data name="house_price" xml:space="preserve">
+    <value>Prix de la maison</value>
+  </data>
+  <data name="land" xml:space="preserve">
+    <value>terrain</value>
+  </data>
+  <data name="land_area" xml:space="preserve">
+    <value>Superficie du terrain</value>
+  </data>
+  <data name="land_description" xml:space="preserve">
+    <value>Description du terrain</value>
+  </data>
+  <data name="land_id" xml:space="preserve">
+    <value>Identifiant du terrain</value>
+  </data>
+  <data name="land_list" xml:space="preserve">
+    <value>Liste des terrains</value>
+  </data>
+  <data name="land_location" xml:space="preserve">
+    <value>Localisation du terrain</value>
+  </data>
+  <data name="land_price" xml:space="preserve">
+    <value>Prix du terrain</value>
+  </data>
+  <data name="land_type" xml:space="preserve">
+    <value>Type de terrains</value>
+  </data>
+  <data name="list" xml:space="preserve">
+    <value>Lister</value>
+  </data>
+  <data name="mail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="number_of_bathroom" xml:space="preserve">
+    <value>Nombre de dcouche </value>
+  </data>
+  <data name="number_of_bedrooms" xml:space="preserve">
+    <value>Nombre de chambre</value>
+  </data>
+  <data name="number_of_kitchens" xml:space="preserve">
+    <value>Nombre de cuisine</value>
+  </data>
+  <data name="number_of_pieces" xml:space="preserve">
+    <value>Nombre de pieces</value>
+  </data>
+  <data name="number_of_room" xml:space="preserve">
+    <value>Nombre de Salle </value>
+  </data>
+  <data name="number_of_toilets" xml:space="preserve">
+    <value>Nombre de toilettes</value>
+  </data>
+  <data name="owner" xml:space="preserve">
+    <value>Proprietaire</value>
+  </data>
+  <data name="owner_address" xml:space="preserve">
+    <value>Adresse du proprietaire</value>
+  </data>
+  <data name="owner_id" xml:space="preserve">
+    <value>Identifiant du proprietaire</value>
+  </data>
+  <data name="owner_list" xml:space="preserve">
+    <value>Liste des proprietaire</value>
+  </data>
+  <data name="studio" xml:space="preserve">
+    <value>Studio</value>
+  </data>
+  <data name="studio_description" xml:space="preserve">
+    <value>Description du studio</value>
+  </data>
+  <data name="studio_list" xml:space="preserve">
+    <value>Liste des studios</value>
+  </data>
+  <data name="Studio_location" xml:space="preserve">
+    <value>Localisation du studio</value>
+  </data>
+  <data name="studio_price" xml:space="preserve">
+    <value>Prix du studio</value>
+  </data>
+  <data name="studo_id" xml:space="preserve">
+    <value>identifiant du studio</value>
+  </data>
+  <data name="update" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="update_apartment" xml:space="preserve">
+    <value>Mise a jour d'un appartement</value>
+  </data>
+  <data name="update_bedroom" xml:space="preserve">
+    <value>Mise a jour d'une Chambre</value>
+  </data>
+  <data name="update_house" xml:space="preserve">
+    <value>Mise a jour d'une Maison</value>
+  </data>
+  <data name="update_land" xml:space="preserve">
+    <value>Mise a jour d'un terrain</value>
+  </data>
+  <data name="update_owner" xml:space="preserve">
+    <value>Mise a jour d'un proprietaire</value>
+  </data>
+  <data name="update_studio" xml:space="preserve">
+    <value>Mise a jour d'un studio</value>
+  </data>
+  <data name="update_user" xml:space="preserve">
+    <value>MIse a jour d'un utilisateur </value>
+  </data>
+  <data name="user" xml:space="preserve">
+    <value>Utilisateur</value>
+  </data>
+  <data name="user_id" xml:space="preserve">
+    <value>Identiant</value>
+  </data>
+  <data name="user_login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="user_name" xml:space="preserve">
+    <value>Nom </value>
+  </data>
+  <data name="user_phone" xml:space="preserve">
+    <value>Numéro de téléphone</value>
+  </data>
+  <data name="view" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="welcome" xml:space="preserve">
+    <value>Bienvenu</value>
+  </data>
+</root>

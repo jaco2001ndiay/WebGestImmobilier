@@ -1,12 +1,10 @@
-﻿<!-- model IEnumerable<WebGestImmobilier.Models.Proprietaire> -->
-@model PagedList.IPagedList<WebGestImmobilier.Models.Proprietaire>
+﻿@model PagedList.IPagedList<WebGestImmobilier.Models.Proprietaire>
 @using PagedList.Mvc ;
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <style>
     h2 {
@@ -17,93 +15,61 @@
         margin-bottom: 20px;
     }
 
-    .table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
+    .table th, .table td {
+        vertical-align: middle;
     }
-
-        .table th, .table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        .table th {
-            background-color: #f2f2f2;
-        }
-
-    .pagination {
-        display: inline-block;
-        padding-left: 0;
-        margin: 20px 0;
-        border-radius: 4px;
-    }
-
-        .pagination > li {
-            display: inline;
-            margin-right: 5px;
-        }
-
-            .pagination > li > a,
-            .pagination > li > span {
-                position: relative;
-                float: left;
-                padding: 6px 12px;
-                margin-left: -1px;
-                line-height: 1.42857143;
-                text-decoration: none;
-                background-color: #fff;
-                border: 1px solid #ddd;
-            }
 </style>
 
-<h2>Index</h2>
+<h2>Liste des Propriétaires</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<!-- inclusion de la barre de recherche -->
-@using (Html.BeginForm("Index", "Proprietaires", FormMethod.Get))
-{
-    <div class="search-container">
+<div class="row">
+    <div class="col-md-6">
         <p>
-            Rechercher par nom du proprietaire ou prenom: @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
-            <input type="submit" value="Rechercher" />
+            @Html.ActionLink("Créer un nouveau", "Create", null, new { @class = "btn btn-primary" })
         </p>
     </div>
-}
-<table class="table">
-    <tr>
-        <th>
-            @Html.ActionLink("Nom de l'user ", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
-        </th>
-        <th>
-            @Html.ActionLink("Identifiant Proprietaire", "Index", new { sortOrder = ViewBag.PrenomSortParm, currentFilter = ViewBag.CurrentFilter })
-        </th>
-        <th></th>
-    </tr>
+    <div class="col-md-6">
+        @using (Html.BeginForm("Index", "Proprietaires", FormMethod.Get))
+        {
+            <div class="input-group">
+                @Html.TextBox("searchString", ViewBag.CurrentFilter as string, new { @class = "form-control", placeholder = "Rechercher par nom du propriétaire ou prénom" })
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">Rechercher</button>
+                </span>
+            </div>
+        }
+    </div>
+</div>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Utilisateures.nomUsers)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomPropri)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Idproprietarie }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Idproprietarie }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Idproprietarie })
-            </td>
-        </tr>
-    }
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nom de l'utilisateur</th>
+                <th>Identifiant Propriétaire</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Utilisateures.nomUsers)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NomPropri)</td>
+                    <td>
+                        @Html.ActionLink("Modifier", "Edit", new { id = item.Idproprietarie }, new { @class = "btn btn-warning btn-sm" }) |
+                        @Html.ActionLink("Détails", "Details", new { id = item.Idproprietarie }, new { @class = "btn btn-info btn-sm" }) |
+                        @Html.ActionLink("Supprimer", "Delete", new { id = item.Idproprietarie }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
-</table>
-<br />
-  Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
-
-
+<div class="row">
+    <div class="col-md-12">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    </div>
+</div>
